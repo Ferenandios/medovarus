@@ -8,9 +8,9 @@ import type { IState, AdsResponse } from "../types/types";
 
 export const getAds = createAsyncThunk<AdsResponse>(
   "global/fetchAds",
-  async () => {
+  async (page) => {
     const response = await axios.get<AdsResponse>(
-      "http://localhost:3001/api/v1/ads"
+      import.meta.env.VITE_API + "?page=" + page
     );
     return response.data;
   }
@@ -33,7 +33,6 @@ const globalSlice = createSlice({
   name: "global",
   initialState,
   reducers: {},
-
   extraReducers: (builder) => {
     builder
       .addCase(getAds.pending, (state) => {

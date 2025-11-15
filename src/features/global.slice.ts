@@ -1,0 +1,60 @@
+import {
+  createSlice,
+  createAsyncThunk,
+  type PayloadAction,
+} from "@reduxjs/toolkit";
+import axios from "axios";
+import type { IState, AdsResponse } from "../types/types";
+
+export const getAds = createAsyncThunk<AdsResponse>(
+  "global/fetchAds",
+  async () => {
+    const response = await axios.get<AdsResponse>(
+      "http://localhost:3001/api/v1/ads"
+    );
+    return response.data;
+  }
+);
+
+const initialState: IState = {
+  ads: [],
+  pagination: {
+    currentPage: 1,
+    totalPages: 1,
+    totalItems: 0,
+    itemsPerPage: 10,
+  },
+  isLoading: false,
+  error: null,
+  selectedAdId: null,
+};
+
+const globalSlice = createSlice({
+  name: "global",
+  initialState,
+  reducers: {},
+
+  extraReducers: (builder) => {
+    builder
+      .addCase(getAds.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+
+      .addCase(
+        getAds.fulfilled,
+        (state, action: PayloadAction<AdsResponse>) => {
+          state.isLoading = false;
+          state.ads = action.payload.ads;
+          state.pagination = action.payload.pagination;
+        }
+      )
+
+      .addCase(getAds.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message || "Unknown error";
+      });
+  },
+});
+
+export default globalSlice.reducer;

@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+.list {
+  @apply flex w-[140px] truncate;
+}
+
+.dot {
+  @apply mx-[3px];
+}

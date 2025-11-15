@@ -1,0 +1,5 @@
+@reference "tailwindcss";
+
+.title {
+  @apply w-[140px] truncate;
+}

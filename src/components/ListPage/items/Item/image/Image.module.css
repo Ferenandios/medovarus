@@ -1,0 +1,5 @@
+@reference "tailwindcss";
+
+.image {
+  @apply bg-lime-300 bg-cover bg-center w-[40px] h-[40px] border rounded-xl;
+}

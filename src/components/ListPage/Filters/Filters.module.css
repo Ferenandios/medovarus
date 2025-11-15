@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+.ansoc {
+  @apply flex justify-center mt-[30px];
+}
+
+.inner {
+  @apply bg-[#FFF4D6] w-[90%] border rounded-2xl py-[10px] px-[30px];
+}

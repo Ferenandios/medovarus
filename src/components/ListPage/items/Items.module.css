@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+.ansoc {
+  @apply flex justify-center;
+}
+
+.inner {
+  @apply flex flex-col w-[90%];
+}

@@ -1,0 +1,5 @@
+@reference "tailwindcss";
+
+.inner {
+  @apply flex flex-col justify-center ml-[10px];
+}

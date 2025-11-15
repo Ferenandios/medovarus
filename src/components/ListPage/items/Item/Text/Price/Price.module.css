@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+.inner {
+  @apply w-[130px];
+}
+
+.price {
+  @apply w-full truncate;
+}

@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+.ansoc {
+  @apply flex justify-center mt-[30px];
+}
+
+.title {
+  @apply font-semibold;
+}

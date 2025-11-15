@@ -1,0 +1,13 @@
+@reference "tailwindcss";
+
+.list1 {
+  @apply list-disc;
+}
+
+.list2 {
+  @apply flex list-disc;
+}
+
+.item {
+  @apply ml-[30px] first:ml-0;
+}

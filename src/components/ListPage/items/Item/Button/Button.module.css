@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+.inner {
+  @apply flex items-end;
+}
+
+.button {
+  @apply font-semibold bg-[#D4F4DD] max-w-[70px] border rounded-xl p-[5px] overflow-hidden;
+}

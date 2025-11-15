@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+.ansoc {
+  @apply flex justify-between w-full border rounded-2xl mt-[15px] p-[10px];
+}
+
+.inner {
+  @apply flex;
+}

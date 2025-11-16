@@ -57,4 +57,25 @@ export interface IState {
   isLoading: boolean;
   error: string | null;
   selectedAdId: number | null;
+  currentItem: Advertisement;
+  stats: Moderator;
+  showModal: boolean;
+}
+
+export interface ModeratorStats {
+  totalReviewed: number;
+  todayReviewed: number;
+  thisWeekReviewed: number;
+  thisMonthReviewed: number;
+  averageReviewTime: number;
+  approvalRate: number;
+}
+
+export interface Moderator {
+  id: number;
+  name: string;
+  email: string;
+  role: string;
+  statistics: ModeratorStats;
+  permissions: string[];
 }

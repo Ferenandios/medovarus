@@ -13,7 +13,7 @@ const Item: FC<{ ad: Advertisement }> = ({ ad }): JSX.Element => {
           <Image ad={ad} />
           <Text ad={ad} />
         </div>
-        <Button />
+        <Button ad={ad} />
       </div>
     </>
   );

@@ -1,11 +1,15 @@
 import { type FC, type JSX } from "react";
 import styles from "./Button.module.css";
+import type { Advertisement } from "../../../../../types/types";
+import { Link } from "react-router-dom";
 
-const Button: FC = (): JSX.Element => {
+const Button: FC<{ ad: Advertisement }> = ({ ad }): JSX.Element => {
   return (
     <>
       <div className={styles.inner}>
-        <button className={styles.button}>Открыть →</button>
+        <Link to={`/item/${ad.id}`} className={styles.button}>
+          Открыть →
+        </Link>
       </div>
     </>
   );

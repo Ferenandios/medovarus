@@ -6,11 +6,11 @@ import {
 import axios from "axios";
 import type { IState, AdsResponse } from "../types/types";
 
-export const getAds = createAsyncThunk<AdsResponse>(
+export const getAds = createAsyncThunk<AdsResponse, number>(
   "global/fetchAds",
-  async (page) => {
+  async (page: number) => {
     const response = await axios.get<AdsResponse>(
-      import.meta.env.VITE_API + "?page=" + page
+      `${import.meta.env.VITE_API}?page=${page}`
     );
     return response.data;
   }
@@ -32,7 +32,11 @@ const initialState: IState = {
 const globalSlice = createSlice({
   name: "global",
   initialState,
-  reducers: {},
+  reducers: {
+    clearPage: (state: IState) => {
+      state.ads = [];
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getAds.pending, (state) => {
@@ -57,3 +61,4 @@ const globalSlice = createSlice({
 });
 
 export default globalSlice.reducer;
+export const { clearPage } = globalSlice.actions;

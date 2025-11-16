@@ -4,6 +4,7 @@ import { getAds } from "../features/global.slice";
 import Title from "../components/ListPage/Title/Title";
 import Filters from "../components/ListPage/Filters/Filters";
 import Items from "../components/ListPage/items/Items";
+import Pagination from "../components/ListPage/Pagination/Pagination";
 
 const ListPage: FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -15,6 +16,7 @@ const ListPage: FC = (): JSX.Element => {
       <Title />
       <Filters />
       <Items />
+      <Pagination />
     </main>
   );
 };
